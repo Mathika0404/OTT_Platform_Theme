@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>OTT Website</title>
+
+  <!-- GOOGLE FONT -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+
+  <!-- REMIX ICON -->
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+
+<!-- FONT AWESOME -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css">
+
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="./css/about.css">
+</head>
+<body>
+
+
+<!-- MODAL -->
+<div id="loginModal" class="login-modal">
+
+  <div class="login-box">
+
+    <span class="close-btn" onclick="closeLogin()">&times;</span>
+
+    <div class="bio-logo">
+      <i class="ri-movie-2-line"></i>
+    </div>
+
+    <h2 id="formTitle">Welcome Back</h2>
+
+    <p id="formSubtitle">
+      Login to continue watching your favorite movies & shows
+    </p>
+
+    <form id="authForm" onsubmit="handleAuthSubmit(event)">
+
+      <!-- ROLE -->
+      <div id="loginRoleBox">
+        <label>Login As</label>
+        <select id="loginRole">
+          <option value="admin">Admin</option>
+          <option value="user">User</option>
+        </select>
+        <p class="role-note">Choose Admin or User</p>
+      </div>
+
+      <!-- NAME -->
+      <input type="text" id="fullName" placeholder="Full Name" style="display:none;">
+
+      <!-- PHONE -->
+      <input type="tel" id="phoneNumber" placeholder="Phone Number">
+
+      <!-- EMAIL -->
+      <input type="email" id="email" placeholder="Email Address" required>
+
+      <!-- PASSWORD -->
+      <div class="password-field">
+        <input type="password" id="loginPassword" placeholder="Password" required>
+        <i class="ri-eye-off-line toggle-eye" id="eyeIcon" onclick="togglePassword()"></i>
+      </div>
+
+      <!-- CONFIRM -->
+      <input type="password" id="confirmPassword" placeholder="Confirm Password" style="display:none;">
+
+      <button type="submit" class="login-submit" id="submitBtn">
+        Login to Dashboard
+      </button>
+
+    </form>
+
+    <p class="switch-text">
+      <span id="switchText">Don't have an account?</span>
+      <a href="#" onclick="toggleAuth()">Sign up</a>
+    </p>
+
+  </div>
+
+</div>
+
+
+<!-- NAVBAR -->
+<header>
+  <nav class="navbar">
+
+    <div class="nav__header">
+      <div class="nav__logo">
+        <a href="index.html">
+          <img src="./images/stackly_logo.webp" class="logo-img" alt="logo">
+        </a>
+      </div>
+
+      <div class="nav__menu__btn" id="menu-btn">
+        <i class="ri-menu-line"></i>
+      </div>
+    </div>
+
+    <ul class="nav__links" id="nav-links">
+      <li class="dropdown">
+        <a href="index.html">Home</a>
+      </li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="research.html">Service</a></li>
+      <li><a href="categories.html">Categories</a></li>
+      <li><a href="contact.html">Contact</a></li>
+<li>
+  <a href="javascript:void(0)" onclick="openLogin()">Login</a>
+</li>
+    </ul>
+
+  </nav>
+</header>
+
+
+<section class="about-hero">
+
+  <div class="overlay"></div>
+
+  <div class="about-content">
+    <h1>About StreamX</h1>
+
+    <p>
+      StreamX is your ultimate destination for unlimited entertainment.
+      Watch the latest movies, binge-worthy TV shows, and exclusive originals
+      anytime, anywhere. We bring stories to life with high-quality streaming
+      and personalized experiences tailored just for you.
+    </p>
+
+    <button class="about-btn" onclick="goTo404()">Explore Now</button>
+  </div>
+
+</section>
+
+
+<section class="mission">
+
+  <div class="mission-container">
+
+    <!-- LEFT IMAGES -->
+    <div class="mission-image">
+
+      <!-- BIG IMAGE -->
+      <img src="images/about1.webp" class="big-img">
+
+      <!-- SMALL OVERLAP IMAGE -->
+      <img src="images/about2.webp" class="small-img">
+
+    </div>
+
+    <!-- RIGHT CONTENT -->
+    <div class="mission-content">
+<h2>Our Mission & Vision</h2>
+
+<p>
+  At StreamX, our mission and vision are centered around delivering
+  world-class entertainment that inspires, connects, and engages audiences
+  across the globe. We strive to provide a seamless streaming experience
+  with high-quality content, ranging from blockbuster movies to exclusive
+  originals, ensuring there is something for everyone.
+
+  Our platform is designed to make entertainment easily accessible,
+  allowing users to watch their favorite content anytime, anywhere,
+  across multiple devices. We focus on innovation, performance, and
+  user satisfaction to create a smooth and enjoyable viewing journey.
+
+  Our vision is to redefine digital entertainment by continuously
+  evolving with new technologies and trends. We aim to build a platform
+  that not only entertains but also connects people through meaningful
+  stories and shared experiences.
+
+  By supporting creators, embracing creativity, and delivering diverse
+  content, we aspire to become a globally trusted OTT platform that
+  shapes the future of entertainment and sets new standards in the
+  streaming industry.
+</p>
+
+</section>
+
+<section class="why">
+
+  <div class="why-container">
+
+    <!-- LEFT CONTENT -->
+    <div class="why-content">
+      <h2>Why Choose StreamX?</h2>
+
+      <p>
+        StreamX offers a premium entertainment experience designed for modern viewers.
+        Enjoy unlimited access to movies, TV shows, and exclusive originals with
+        high-quality streaming and seamless performance across all devices.
+      </p>
+
+      <ul>
+        <li>✔ Unlimited movies and TV shows</li>
+        <li>✔ HD & 4K streaming quality</li>
+        <li>✔ Watch anytime, anywhere</li>
+        <li>✔ Smart recommendations</li>
+        <li>✔ Multi-device support</li>
+      </ul>
+
+      <button class="why-btn"  onclick="goTo404()">Start Watching</button>
+    </div>
+
+    <!-- RIGHT IMAGE -->
+    <div class="why-image">
+      <img src="images/about3.webp" alt="Streaming Experience">
+    </div>
+
+  </div>
+
+</section>
+
+<!-- FOOTER SECTION -->
+<footer class="bio-footer">
+
+  <div class="footer-container">
+
+    <!-- ABOUT OTT -->
+    <div class="footer-col">
+      <div class="footer-logo">
+        <img src="./images/stackly_logo.webp" alt="OTT Platform Logo">
+      </div>
+
+      <p>
+        Our OTT streaming platform delivers unlimited movies, TV shows,
+        and exclusive originals across multiple genres. Enjoy high-quality
+        entertainment anytime, anywhere with seamless streaming,
+        personalized recommendations, and a cinematic experience
+        at your fingertips.
+      </p>
+    </div>
+
+    <!-- QUICK LINKS -->
+    <div class="footer-col">
+      <h4>Quick Links</h4>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="movies.html">Movies</a></li>
+        <li><a href="categories.html">Categories</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+
+    <!-- SOCIAL MEDIA -->
+    <div class="footer-col">
+      <h4>Follow Us</h4>
+      <ul class="social-links">
+        <li>
+          <a href="404.html"><i class="ri-facebook-fill"></i> Facebook</a>
+        </li>
+        <li>
+          <a href="404.html"><i class="ri-twitter-x-line"></i> Twitter</a>
+        </li>
+        <li>
+          <a href="404.html"><i class="ri-instagram-line"></i> Instagram</a>
+        </li>
+        <li>
+          <a href="404.html"><i class="ri-linkedin-fill"></i> LinkedIn</a>
+        </li>
+        <li>
+          <a href="404.html"><i class="ri-youtube-fill"></i> YouTube</a>
+        </li>
+      </ul>
+    </div>
+
+    <!-- CATEGORIES -->
+    <div class="footer-col">
+      <h4>Categories</h4>
+      <ul>
+        <li><a href="404.html">Action</a></li>
+        <li><a href="404.html">Drama</a></li>
+        <li><a href="404.html">Sci-Fi</a></li>
+        <li><a href="404.html">Thriller</a></li>
+        <li><a href="404.html">Comedy</a></li>
+      </ul>
+    </div>
+
+    <!-- SUPPORT -->
+    <div class="footer-col">
+      <h4>Support</h4>
+      <ul>
+        <li><a href="404.html">Help Center</a></li>
+        <li><a href="404.html">Account Settings</a></li>
+        <li><a href="404.html">Subscription Plans</a></li>
+        <li><a href="404.html">Privacy Policy</a></li>
+        <li><a href="404.html">Terms & Conditions</a></li>
+      </ul>
+    </div>
+
+  </div>
+
+  <!-- FOOTER BOTTOM -->
+  <div class="footer-bottom">
+    <p>© 2026 StreamX OTT Platform | All Rights Reserved</p>
+  </div>
+
+</footer>
+<script>
+function goTo404() {
+  window.location.href = "404.html";
+}
+</script>
+<script src="./js/script.js"></script>
+</body>
+</html>

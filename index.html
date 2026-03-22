@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>OTT Website</title>
+
+  <!-- GOOGLE FONT -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+
+  <!-- REMIX ICON -->
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+
+<!-- FONT AWESOME -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css">
+
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+
+<!-- PRELOADER -->
+<!-- <div id="preloader">
+  <video id="loaderVideo" autoplay muted loop playsinline>
+    <source src="./images/preloader.mp4" type="video/mp4">
+  </video>
+</div> -->
+
+
+<!-- MODAL -->
+<div id="loginModal" class="login-modal">
+
+  <div class="login-box">
+
+    <span class="close-btn" onclick="closeLogin()">&times;</span>
+
+    <div class="bio-logo">
+      <i class="ri-movie-2-line"></i>
+    </div>
+
+    <h2 id="formTitle">Welcome Back</h2>
+
+    <p id="formSubtitle">
+      Login to continue watching your favorite movies & shows
+    </p>
+
+    <form id="authForm" onsubmit="handleAuthSubmit(event)">
+
+      <!-- ROLE -->
+      <div id="loginRoleBox">
+        <label>Login As</label>
+        <select id="loginRole">
+          <option value="admin">Admin</option>
+          <option value="user">User</option>
+        </select>
+        <p class="role-note">Choose Admin or User</p>
+      </div>
+
+      <!-- NAME -->
+      <input type="text" id="fullName" placeholder="Full Name" style="display:none;">
+
+      <!-- PHONE -->
+      <input type="tel" id="phoneNumber" placeholder="Phone Number">
+
+      <!-- EMAIL -->
+      <input type="email" id="email" placeholder="Email Address" required>
+
+      <!-- PASSWORD -->
+      <div class="password-field">
+        <input type="password" id="loginPassword" placeholder="Password" required>
+        <i class="ri-eye-off-line toggle-eye" id="eyeIcon" onclick="togglePassword()"></i>
+      </div>
+
+      <!-- CONFIRM -->
+      <input type="password" id="confirmPassword" placeholder="Confirm Password" style="display:none;">
+
+      <button type="submit" class="login-submit" id="submitBtn">
+        Login to Dashboard
+      </button>
+
+    </form>
+
+    <p class="switch-text">
+      <span id="switchText">Don't have an account?</span>
+      <a href="#" onclick="toggleAuth()">Sign up</a>
+    </p>
+
+  </div>
+
+</div>
+
+
+<!-- NAVBAR -->
+<header>
+  <nav class="navbar">
+
+    <div class="nav__header">
+      <div class="nav__logo">
+        <a href="index.html">
+          <img src="./images/stackly_logo.webp" class="logo-img" alt="logo">
+        </a>
+      </div>
+
+      <div class="nav__menu__btn" id="menu-btn">
+        <i class="ri-menu-line"></i>
+      </div>
+    </div>
+
+    <ul class="nav__links" id="nav-links">
+      <li class="dropdown">
+        <a href="index.html">Home</a>
+      </li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="research.html">Service</a></li>
+      <li><a href="categories.html">Categories</a></li>
+      <li><a href="contact.html">Contact</a></li>
+<li>
+  <a href="javascript:void(0)" onclick="openLogin()">Login</a>
+</li>
+    </ul>
+
+  </nav>
+</header>
+
+<section class="hero">
+
+  <!-- MAIN BACKGROUND VIDEO -->
+  <video id="bgVideo" autoplay muted loop class="bg-video">
+    <source src="images/sita_video.mp4" type="video/mp4">
+  </video>
+
+  <div class="overlay"></div>
+
+  <div class="hero-content">
+
+<!-- LEFT -->
+<div class="hero-left">
+  <h1 id="title">Sita Ramam</h1>
+
+  <p id="desc">
+    A timeless love story that blossoms through heartfelt letters and
+    unforgettable moments. In a world full of chaos, their pure and
+    eternal bond proves that true love knows no boundaries, distance,
+    or time.
+  </p>
+
+  <button class="watch-btn" onclick="goTo404()">▶ Watch Now</button>
+</div>
+
+<!-- RIGHT SIDE IMAGES -->
+<div class="hero-right">
+
+  <img src="images/zootopia_image.webp" class="thumb active" onclick="changeVideo(0)">
+  <img src="images/conjuring_image.webp" class="thumb" onclick="changeVideo(1)">
+  <img src="images/demon_image.webp" class="thumb" onclick="changeVideo(2)">
+  <img src="images/jocker_image.webp" class="thumb" onclick="changeVideo(3)">
+  <img src="images/sita_image.webp" class="thumb" onclick="changeVideo(4)">
+
+</div>
+
+  </div>
+
+</section>
+
+
+<section class="trending">
+
+  <h2>Trending Now</h2>
+
+  <div class="trending-wrapper">
+    <div class="trending-slider" id="slider">
+
+      <!-- CARD -->
+      <div class="card">
+        <span class="rank">1</span>
+        <img src="images/trending1.webp">
+      </div>
+
+      <div class="card">
+        <span class="rank">2</span>
+        <img src="images/trending2.webp">
+      </div>
+
+      <div class="card">
+        <span class="rank">3</span>
+        <img src="images/trending3.webp">
+      </div>
+
+      <div class="card">
+        <span class="rank">4</span>
+        <img src="images/trending4.webp">
+      </div>
+
+      <div class="card">
+        <span class="rank">5</span>
+        <img src="images/trending5.webp">
+      </div>
+
+      <div class="card">
+        <span class="rank">6</span>
+        <img src="images/trending6.webp">
+      </div>
+
+      <div class="card">
+        <span class="rank">7</span>
+        <img src="images/trending7.webp">
+      </div>
+
+      <div class="card">
+        <span class="rank">8</span>
+        <img src="images/trending8.webp">
+      </div>
+
+      <div class="card">
+        <span class="rank">9</span>
+        <img src="images/trending9.webp">
+      </div>
+
+      <div class="card">
+        <span class="rank">10</span>
+        <img src="images/trending10.webp">
+      </div>
+
+    </div>
+  </div>
+
+</section>
+
+<section class="popular">
+
+  <h2>Popular TV Shows</h2>
+
+    <!-- ARROWS -->
+  <button class="slide-btn left" onclick="slideLeft()">&#10094;</button>
+  <button class="slide-btn right" onclick="slideRight()">&#10095;</button>
+
+  <div class="popular-row" id="sliders">
+
+    <!-- CARD -->
+    <div class="p-card">
+      <img src="images/show1.webp">
+      <div class="p-overlay">
+        <button onclick="goTo404()">▶ Watch Now</button>
+        <p class="meta">2022 • Tamil</p>
+        <p class="desc">A gripping emotional journey of love and destiny.</p>
+      </div>
+    </div>
+
+    <div class="p-card">
+      <img src="images/show2.webp">
+      <div class="p-overlay">
+        <button onclick="goTo404()">▶ Watch Now</button>
+        <p class="meta">2021 • Hindi</p>
+        <p class="desc">A romantic tale that blossoms through time.</p>
+      </div>
+    </div>
+
+    <div class="p-card">
+      <img src="images/show3.webp">
+      <div class="p-overlay">
+        <button onclick="goTo404()">▶ Watch Now</button>
+        <p class="meta">2023 • English</p>
+        <p class="desc">A modern love story with unexpected twists.</p>
+      </div>
+    </div>
+
+    <div class="p-card">
+      <img src="images/show4.webp">
+      <div class="p-overlay">
+        <button onclick="goTo404()">▶ Watch Now</button>
+        <p class="meta">2020 • Tamil</p>
+        <p class="desc">An intense drama about relationships and trust.</p>
+      </div>
+    </div>
+
+    <div class="p-card">
+      <img src="images/show5.webp">
+      <div class="p-overlay">
+        <button onclick="goTo404()">▶ Watch Now</button>
+        <p class="meta">2019 • Telugu</p>
+        <p class="desc">A heart-touching story filled with emotions.</p>
+      </div>
+    </div>
+
+    <div class="p-card">
+      <img src="images/show6.webp">
+      <div class="p-overlay">
+        <button onclick="goTo404()">▶ Watch Now</button>
+        <p class="meta">2024 • Malayalam</p>
+        <p class="desc">A fresh take on love and life struggles.</p>
+      </div>
+    </div>
+
+    <div class="p-card">
+      <img src="images/show7.webp">
+      <div class="p-overlay">
+        <button onclick="goTo404()">▶ Watch Now</button>
+        <p class="meta">2022 • Kannada</p>
+        <p class="desc">A beautiful story of connections and memories.</p>
+      </div>
+    </div>
+
+    <div class="p-card">
+      <img src="images/show8.webp">
+      <div class="p-overlay">
+        <button onclick="goTo404()">▶ Watch Now</button>
+        <p class="meta">2021 • Tamil</p>
+        <p class="desc">Love, laughter, and unforgettable moments.</p>
+      </div>
+    </div>
+
+    <div class="p-card">
+      <img src="images/show9.webp">
+      <div class="p-overlay">
+        <button onclick="goTo404()">▶ Watch Now</button>
+        <p class="meta">2023 • Hindi</p>
+        <p class="desc">An emotional rollercoaster of relationships.</p>
+      </div>
+    </div>
+
+    <div class="p-card">
+      <img src="images/show10.webp">
+      <div class="p-overlay">
+        <button onclick="goTo404()">▶ Watch Now</button>
+        <p class="meta">2020 • English</p>
+        <p class="desc">A timeless story that touches the soul.</p>
+      </div>
+    </div>
+
+  </div>
+
+</section>
+
+
+<section class="faq">
+
+  <h2>Frequently Asked Questions</h2>
+
+  <div class="faq-item">
+    <div class="faq-question">
+      What is StreamX?
+      <i class="ri-add-line"></i>
+    </div>
+    <div class="faq-answer">
+      StreamX is an online OTT platform where you can watch movies,
+      TV shows, and exclusive originals anytime, anywhere.
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-question">
+      How much does StreamX cost?
+      <i class="ri-add-line"></i>
+    </div>
+    <div class="faq-answer">
+      StreamX offers flexible subscription plans like Basic,
+      Standard, and Premium with different features and pricing.
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-question">
+      Where can I watch StreamX?
+      <i class="ri-add-line"></i>
+    </div>
+    <div class="faq-answer">
+      You can watch StreamX on smartphones, tablets, smart TVs,
+      laptops, and desktops with an internet connection.
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-question">
+      How do I cancel my subscription?
+      <i class="ri-add-line"></i>
+    </div>
+    <div class="faq-answer">
+      You can cancel your subscription anytime from your account
+      settings without any extra charges or hidden fees.
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-question">
+      What content is available on StreamX?
+      <i class="ri-add-line"></i>
+    </div>
+    <div class="faq-answer">
+      StreamX offers a wide range of content including movies,
+      TV shows, web series, documentaries, and exclusive originals.
+    </div>
+  </div>
+
+</section>
+
+<div class="cta-section">
+
+  <p class="cta-text">
+    Ready to watch? Enter your email to create or restart your membership.
+  </p>
+
+  <div class="cta-box">
+    <input type="email" id="emailInput" placeholder="Email address">
+    <button onclick="redirectTo404()">Get Started ❯</button>
+  </div>
+
+</div>
+
+<!-- FOOTER SECTION -->
+<footer class="bio-footer">
+
+  <div class="footer-container">
+
+    <!-- ABOUT OTT -->
+    <div class="footer-col">
+      <div class="footer-logo">
+        <img src="./images/stackly_logo.webp" alt="OTT Platform Logo">
+      </div>
+
+      <p>
+        Our OTT streaming platform delivers unlimited movies, TV shows,
+        and exclusive originals across multiple genres. Enjoy high-quality
+        entertainment anytime, anywhere with seamless streaming,
+        personalized recommendations, and a cinematic experience
+        at your fingertips.
+      </p>
+    </div>
+
+    <!-- QUICK LINKS -->
+    <div class="footer-col">
+      <h4>Quick Links</h4>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="movies.html">Movies</a></li>
+        <li><a href="categories.html">Categories</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+
+    <!-- SOCIAL MEDIA -->
+    <div class="footer-col">
+      <h4>Follow Us</h4>
+      <ul class="social-links">
+        <li>
+          <a href="404.html"><i class="ri-facebook-fill"></i> Facebook</a>
+        </li>
+        <li>
+          <a href="404.html"><i class="ri-twitter-x-line"></i> Twitter</a>
+        </li>
+        <li>
+          <a href="404.html"><i class="ri-instagram-line"></i> Instagram</a>
+        </li>
+        <li>
+          <a href="404.html"><i class="ri-linkedin-fill"></i> LinkedIn</a>
+        </li>
+        <li>
+          <a href="404.html"><i class="ri-youtube-fill"></i> YouTube</a>
+        </li>
+      </ul>
+    </div>
+
+    <!-- CATEGORIES -->
+    <div class="footer-col">
+      <h4>Categories</h4>
+      <ul>
+        <li><a href="404.html">Action</a></li>
+        <li><a href="404.html">Drama</a></li>
+        <li><a href="404.html">Sci-Fi</a></li>
+        <li><a href="404.html">Thriller</a></li>
+        <li><a href="404.html">Comedy</a></li>
+      </ul>
+    </div>
+
+    <!-- SUPPORT -->
+    <div class="footer-col">
+      <h4>Support</h4>
+      <ul>
+        <li><a href="404.html">Help Center</a></li>
+        <li><a href="404.html">Account Settings</a></li>
+        <li><a href="404.html">Subscription Plans</a></li>
+        <li><a href="404.html">Privacy Policy</a></li>
+        <li><a href="404.html">Terms & Conditions</a></li>
+      </ul>
+    </div>
+
+  </div>
+
+  <!-- FOOTER BOTTOM -->
+  <div class="footer-bottom">
+    <p>© 2026 StreamX OTT Platform | All Rights Reserved</p>
+  </div>
+
+</footer>
+<script>
+function goTo404() {
+  window.location.href = "404.html";
+}
+
+function redirectTo404() {
+  const email = document.getElementById("emailInput").value.trim();
+
+  if (email === "") {
+    alert("Please enter your email address");
+    return;
+  }
+
+  const pattern = /^[^ ]+@[^ ]+\.[a-z]{2,}$/;
+
+  if (!pattern.test(email)) {
+    alert("Please enter a valid email address");
+    return;
+  }
+
+  // redirect
+  window.location.href = "404.html";
+}
+</script>
+<script src="./js/script.js"></script>
+</body>
+</html>

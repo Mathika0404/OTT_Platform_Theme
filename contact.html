@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>OTT Website</title>
+
+  <!-- GOOGLE FONT -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+
+  <!-- REMIX ICON -->
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+
+<!-- FONT AWESOME -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css">
+
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="./css/contact.css">
+</head>
+<body>
+
+
+<!-- MODAL -->
+<div id="loginModal" class="login-modal">
+
+  <div class="login-box">
+
+    <span class="close-btn" onclick="closeLogin()">&times;</span>
+
+    <div class="bio-logo">
+      <i class="ri-movie-2-line"></i>
+    </div>
+
+    <h2 id="formTitle">Welcome Back</h2>
+
+    <p id="formSubtitle">
+      Login to continue watching your favorite movies & shows
+    </p>
+
+    <form id="authForm" onsubmit="handleAuthSubmit(event)">
+
+      <!-- ROLE -->
+      <div id="loginRoleBox">
+        <label>Login As</label>
+        <select id="loginRole">
+          <option value="admin">Admin</option>
+          <option value="user">User</option>
+        </select>
+        <p class="role-note">Choose Admin or User</p>
+      </div>
+
+      <!-- NAME -->
+      <input type="text" id="fullName" placeholder="Full Name" style="display:none;">
+
+      <!-- PHONE -->
+      <input type="tel" id="phoneNumber" placeholder="Phone Number">
+
+      <!-- EMAIL -->
+      <input type="email" id="email" placeholder="Email Address" required>
+
+      <!-- PASSWORD -->
+      <div class="password-field">
+        <input type="password" id="loginPassword" placeholder="Password" required>
+        <i class="ri-eye-off-line toggle-eye" id="eyeIcon" onclick="togglePassword()"></i>
+      </div>
+
+      <!-- CONFIRM -->
+      <input type="password" id="confirmPassword" placeholder="Confirm Password" style="display:none;">
+
+      <button type="submit" class="login-submit" id="submitBtn">
+        Login to Dashboard
+      </button>
+
+    </form>
+
+    <p class="switch-text">
+      <span id="switchText">Don't have an account?</span>
+      <a href="#" onclick="toggleAuth()">Sign up</a>
+    </p>
+
+  </div>
+
+</div>
+
+
+<!-- NAVBAR -->
+<header>
+  <nav class="navbar">
+
+    <div class="nav__header">
+      <div class="nav__logo">
+        <a href="index.html">
+          <img src="./images/stackly_logo.webp" class="logo-img" alt="logo">
+        </a>
+      </div>
+
+      <div class="nav__menu__btn" id="menu-btn">
+        <i class="ri-menu-line"></i>
+      </div>
+    </div>
+
+    <ul class="nav__links" id="nav-links">
+      <li class="dropdown">
+        <a href="index.html">Home</a>
+      </li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="research.html">Service</a></li>
+      <li><a href="categories.html">Categories</a></li>
+      <li><a href="contact.html">Contact</a></li>
+<li>
+  <a href="javascript:void(0)" onclick="openLogin()">Login</a>
+</li>
+    </ul>
+
+  </nav>
+</header>
+
+<section class="contact-hero">
+
+  <!-- OVERLAY -->
+  <div class="overlay"></div>
+
+  <!-- CONTENT -->
+  <div class="hero-content">
+    <h1>Contact Us</h1>
+
+    <p>
+      Have questions or need support? We're here to help you anytime.
+      Reach out to us and we’ll get back to you as soon as possible.
+    </p>
+
+    <button onclick="scrollToContact()">Get In Touch</button>
+  </div>
+
+</section>
+
+<section class="contact-section">
+
+  <div class="contact-container">
+
+    <!-- LEFT FORM -->
+    <div class="contact-form">
+      <!-- <h4>Contact Us</h4> -->
+      <h2>Get In Touch</h2>
+
+      <input type="text" placeholder="Your Name...">
+      <input type="email" placeholder="example@email.com">
+      <input type="text" placeholder="Title...">
+      <textarea placeholder="Type Here..."></textarea>
+
+      <button onclick="goTo404()">Send Now</button>
+    </div>
+
+
+    <!-- RIGHT CONTENT -->
+    <div class="contact-info">
+
+      <p class="contact-desc">
+        We’re here to help you anytime. Reach out to us for support,
+        feedback, or any queries related to our streaming platform.
+      </p>
+
+      <div class="info-grid">
+
+        <div class="info-box">
+          <i class="ri-phone-line"></i>
+          <h4>Phone</h4>
+          <p>+91 98765 43210</p>
+        </div>
+
+        <div class="info-box">
+          <i class="ri-mail-line"></i>
+          <h4>Email</h4>
+          <p>support@streamx.com</p>
+        </div>
+
+        <div class="info-box">
+          <i class="ri-map-pin-line"></i>
+          <h4>Location</h4>
+          <p>Madurai, Tamil Nadu</p>
+        </div>
+
+        <div class="info-box">
+          <i class="ri-instagram-line"></i>
+          <h4>Instagram</h4>
+          <p>@streamx_official</p>
+        </div>
+
+      </div>
+
+      <!-- MAP -->
+      <div class="map-box">
+        <iframe 
+          src="https://maps.google.com/maps?q=madurai&t=&z=13&ie=UTF8&iwloc=&output=embed"
+          loading="lazy">
+        </iframe>
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+<!-- FOOTER SECTION -->
+<footer class="bio-footer">
+
+  <div class="footer-container">
+
+    <!-- ABOUT OTT -->
+    <div class="footer-col">
+      <div class="footer-logo">
+        <img src="./images/stackly_logo.webp" alt="OTT Platform Logo">
+      </div>
+
+      <p>
+        Our OTT streaming platform delivers unlimited movies, TV shows,
+        and exclusive originals across multiple genres. Enjoy high-quality
+        entertainment anytime, anywhere with seamless streaming,
+        personalized recommendations, and a cinematic experience
+        at your fingertips.
+      </p>
+    </div>
+
+    <!-- QUICK LINKS -->
+    <div class="footer-col">
+      <h4>Quick Links</h4>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="movies.html">Movies</a></li>
+        <li><a href="categories.html">Categories</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+
+    <!-- SOCIAL MEDIA -->
+    <div class="footer-col">
+      <h4>Follow Us</h4>
+      <ul class="social-links">
+        <li>
+          <a href="404.html"><i class="ri-facebook-fill"></i> Facebook</a>
+        </li>
+        <li>
+          <a href="404.html"><i class="ri-twitter-x-line"></i> Twitter</a>
+        </li>
+        <li>
+          <a href="404.html"><i class="ri-instagram-line"></i> Instagram</a>
+        </li>
+        <li>
+          <a href="404.html"><i class="ri-linkedin-fill"></i> LinkedIn</a>
+        </li>
+        <li>
+          <a href="404.html"><i class="ri-youtube-fill"></i> YouTube</a>
+        </li>
+      </ul>
+    </div>
+
+    <!-- CATEGORIES -->
+    <div class="footer-col">
+      <h4>Categories</h4>
+      <ul>
+        <li><a href="404.html">Action</a></li>
+        <li><a href="404.html">Drama</a></li>
+        <li><a href="404.html">Sci-Fi</a></li>
+        <li><a href="404.html">Thriller</a></li>
+        <li><a href="404.html">Comedy</a></li>
+      </ul>
+    </div>
+
+    <!-- SUPPORT -->
+    <div class="footer-col">
+      <h4>Support</h4>
+      <ul>
+        <li><a href="404.html">Help Center</a></li>
+        <li><a href="404.html">Account Settings</a></li>
+        <li><a href="404.html">Subscription Plans</a></li>
+        <li><a href="404.html">Privacy Policy</a></li>
+        <li><a href="404.html">Terms & Conditions</a></li>
+      </ul>
+    </div>
+
+  </div>
+
+  <!-- FOOTER BOTTOM -->
+  <div class="footer-bottom">
+    <p>© 2026 StreamX OTT Platform | All Rights Reserved</p>
+  </div>
+
+</footer>
+<script>
+function goTo404() {
+  window.location.href = "404.html";
+}
+
+
+function scrollToContact() {
+  document.querySelector(".contact-section").scrollIntoView({
+    behavior: "smooth"
+  });
+}
+</script>
+
+<script src="./js/script.js"></script>
+</body>
+</html>

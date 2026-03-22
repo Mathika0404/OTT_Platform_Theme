@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>OTT Dashboard</title>
+
+<link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+
+<link rel="stylesheet" href="./css/user-dashboard.css">
+</head>
+
+<body>
+
+<!-- SIDEBAR -->
+<div class="sidebar" id="sidebar">
+
+    <!-- SIDEBAR HEADER -->
+    <div class="sidebar-header">
+        <h2 class="logo">STACKLY</h2>
+
+        <!-- CLOSE BUTTON -->
+        <div class="close-btn" id="closeBtn">
+            <i class="ri-close-line"></i>
+        </div>
+    </div>
+
+
+<ul class="menu">
+
+<li><a href="#dashboard" class="active"><i class="ri-dashboard-line"></i> Dashboard</a></li>
+<li><a href="#trending-section"><i class="ri-fire-line"></i> Trending</a></li>
+<li><a href="#top10"><i class="ri-star-line"></i> Top Rated</a></li>
+<li><a href="#discover-section"><i class="ri-compass-3-line"></i> Discover</a></li>
+
+<div class="menu-title">MY LIBRARY</div>
+
+<li><a href="#watchlist-section"><i class="ri-bookmark-line"></i> Watchlist</a></li>
+<li><a href="#watch-history-section"><i class="ri-history-line"></i> Watch History</a></li>
+<li><a href="#favorites-section"><i class="ri-heart-3-line"></i> Favorites</a></li>
+
+<div class="menu-title">ACCOUNT</div>
+
+<li><a href="dashboard-404.html"><i class="ri-settings-3-line"></i> Settings</a></li>
+<li><a href="dashboard-404.html"><i class="ri-logout-box-line"></i> Logout</a></li>
+
+</ul>
+
+</div>
+
+<!-- MAIN -->
+<div class="main">
+
+<!-- NAVBAR -->
+<div class="navbar">
+
+<div class="nav-left">
+    <div class="menu-btn" id="menuBtn">
+        <i class="ri-menu-line" id="menuIcon"></i>
+    </div>
+
+    <!-- DESKTOP LOGO -->
+    <!-- <h2 class="desktop-logo">STACKLY</h2> -->
+</div>
+
+<!-- MOBILE CENTER LOGO -->
+<h2 class="mobile-logo">STACKLY</h2>
+
+<div class="nav-right">
+
+    <div class="nav-search">
+        <i class="ri-search-line"></i>
+        <input type="text" placeholder="Search...">
+    </div>
+
+    <div class="icon">
+        <i class="ri-notification-3-line"></i>
+        <span class="badge">1</span>
+    </div>
+
+          <div class="icon">
+        <i class="ri-message-2-line"></i>
+        <span class="badge">10</span>
+      </div>
+
+    <div class="profile">
+        <div class="avatar">
+            <i class="ri-user-3-line"></i>
+        </div>
+
+        <div class="profile-info">
+            <p class="name">Aravindh</p>
+            <p class="email">aravindh@gmail.com</p>
+        </div>
+    </div>
+
+</div>
+
+</div>
+
+<section class="ott-dashboard" id="dashboard">
+
+  <!-- Top Heading -->
+  <div class="dashboard-header">
+    <h2>Welcome, Aravindh 👋</h2>
+  </div>
+
+  <div class="dashboard-wrapper">
+
+    <!-- Left Side (User Card) -->
+    <div class="user-card">
+      <img src="./images/user-dashboard.webp" alt="user">
+      <h3>Aravindh</h3>
+      <p>Premium Member</p>
+      <span>Plan: Ultra HD</span>
+    </div>
+
+    <!-- Right Side (3x2 Grid) -->
+    <div class="dashboard-stats">
+
+      <div class="stat-box">
+        <i class="ri-movie-2-line"></i>
+        <h3>128</h3>
+        <p>Movies Watched</p>
+      </div>
+
+      <div class="stat-box">
+        <i class="ri-tv-2-line"></i>
+        <h3>42</h3>
+        <p>Series Completed</p>
+      </div>
+
+      <div class="stat-box">
+        <i class="ri-time-line"></i>
+        <h3>320 hrs</h3>
+        <p>Watch Time</p>
+      </div>
+
+      <div class="stat-box">
+        <i class="ri-fire-line"></i>
+        <h3>85%</h3>
+        <p>Completion Rate</p>
+      </div>
+
+      <div class="stat-box">
+        <i class="ri-heart-3-line"></i>
+        <h3>76</h3>
+        <p>Favorites</p>
+      </div>
+
+      <div class="stat-box">
+        <i class="ri-download-2-line"></i>
+        <h3>24</h3>
+        <p>Downloads</p>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+
+<section class="analytics-section">
+
+  <div class="container">
+
+    <div class="analytics-wrapper">
+
+      <!-- LEFT: BAR CHART -->
+      <div class="chart-card">
+        <div class="card-header">
+          <h3>Usage Statistics</h3>
+        </div>
+
+        <canvas id="barChart"></canvas>
+      </div>
+
+      <!-- RIGHT: CALENDAR -->
+      <div class="calendar-card">
+        <div class="calendar-header">
+          <button id="prev">&#10094;</button>
+          <h3 id="monthYear"></h3>
+          <button id="next">&#10095;</button>
+        </div>
+
+        <div class="calendar-days">
+          <span>Su</span><span>Mo</span><span>Tu</span>
+          <span>We</span><span>Th</span><span>Fr</span><span>Sa</span>
+        </div>
+
+        <div class="calendar-dates" id="calendarDates"></div>
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<section class="trending-section" id="trending-section">
+
+  <h2 class="section-title">Trending Movies</h2>
+
+  <div class="trending-grid">
+
+    <div class="movie"><img src="./images/trending1.webp" alt="Trending Movie 1"></div>
+    <div class="movie"><img src="./images/trending2.webp" alt="Trending Movie 2"></div>
+    <div class="movie"><img src="./images/trending3.webp" alt="Trending Movie 3"></div>
+    <div class="movie"><img src="./images/trending4.webp" alt="Trending Movie 4"></div>
+    <div class="movie"><img src="./images/trending5.webp" alt="Trending Movie 5"></div>
+
+    <div class="movie"><img src="./images/trending1.webp" alt="Trending Movie 1"></div>
+    <div class="movie"><img src="./images/trending2.webp" alt="Trending Movie 2"></div>
+    <div class="movie"><img src="./images/trending3.webp" alt="Trending Movie 3"></div>
+    <div class="movie"><img src="./images/trending4.webp" alt="Trending Movie 4"></div>
+    <div class="movie"><img src="./images/trending5.webp" alt="Trending Movie 5"></div>
+
+  </div>
+
+</section>
+
+
+<section class="top10-section" id="top10">
+  <h2 class="section-title">Top Rated Series</h2>
+
+  <div class="top-list">
+    <div class="item">
+      <span class="rank">1</span>
+      <img src="./images/drama1.webp" alt="">
+    </div>
+    <div class="item">
+      <span class="rank">2</span>
+      <img src="./images/drama1.webp" alt="">
+    </div>
+    <div class="item">
+      <span class="rank">3</span>
+      <img src="./images/drama1.webp" alt="">
+    </div>
+    <div class="item">
+      <span class="rank">4</span>
+      <img src="./images/drama1.webp" alt="">
+    </div>
+    <div class="item">
+      <span class="rank">5</span>
+      <img src="./images/drama1.webp" alt="">
+    </div>
+    <div class="item">
+      <span class="rank">6</span>
+      <img src="./images/drama1.webp" alt="">
+    </div>
+    <div class="item">
+      <span class="rank">7</span>
+      <img src="./images/drama1.webp" alt="">
+    </div>
+    <div class="item">
+      <span class="rank">8</span>
+      <img src="./images/drama1.webp" alt="">
+    </div>
+    <div class="item">
+      <span class="rank">9</span>
+      <img src="./images/drama1.webp" alt="">
+    </div>
+    <div class="item">
+      <span class="rank">10</span>
+      <img src="./images/drama1.webp" alt="">
+    </div>
+  </div>
+</section>
+
+
+<section class="discover" id="discover-section">
+
+  <!-- Hero Banner -->
+  <div class="hero">
+    <video autoplay muted loop playsinline>
+  <source src="./images/sita_video.mp4" type="video/mp4">
+</video>
+    <div class="hero-content">
+      <h1>Discover New Favorites</h1>
+      <p>Trending movies, shows & originals picked just for you.</p>
+<a href="dashboard-404.html">
+  <button class="btn-play">▶ Play</button>
+</a>
+
+<a href="dashboard-404.html">
+  <button class="btn-info">More Info</button>
+</a>
+    </div>
+  </div>
+
+</section>
+
+<section class="watchlist" id="watchlist-section">
+  <h2>My Watchlist</h2>
+
+  <div class="watchlist-grid">
+
+    <!-- ITEM -->
+    <div class="card">
+      <img src="./images/animie1.webp" alt="">
+      <a href="dashboard-404.html" class="watch-btn">Watch Now</a>
+    </div>
+
+    <div class="card">
+      <img src="./images/moive2.webp" alt="">
+      <a href="dashboard-404.html" class="watch-btn">Watch Now</a>
+    </div>
+
+    <div class="card">
+      <img src="./images/drama5.webp" alt="">
+      <a href="dashboard-404.html" class="watch-btn">Watch Now</a>
+    </div>
+
+    <div class="card">
+      <img src="./images/animie3.webp" alt="">
+      <a href="dashboard-404.html" class="watch-btn">Watch Now</a>
+    </div>
+
+    <div class="card">
+      <img src="./images/tv_show3.webp" alt="">
+      <a href="dashboard-404.html" class="watch-btn">Watch Now</a>
+    </div>
+
+    <div class="card">
+      <img src="./images/trending7.webp" alt="">
+      <a href="dashboard-404.html" class="watch-btn">Watch Now</a>
+    </div>
+
+    <div class="card">
+      <img src="./images/sport1.webp" alt="">
+      <a href="dashboard-404.html" class="watch-btn">Watch Now</a>
+    </div>
+
+    <div class="card">
+      <img src="./images/show2.webp" alt="">
+      <a href="dashboard-404.html" class="watch-btn">Watch Now</a>
+    </div>
+
+  </div>
+</section>
+
+
+<section class="watch-history" id="watch-history-section">
+  <h2>Watch History</h2>
+
+  <div class="history-grid">
+    <!-- Repeat this card 8 times with different images -->
+    <div class="history-card">
+      <img src="./images/trending5.webp" alt="Movie 1" />
+      <div class="progress-bar"></div>
+
+      <a href="/404.html" class="icon play-icon" title="Play">
+        ▶
+      </a>
+      <a href="/404.html" class="icon trash-icon" title="Remove">
+        🗑
+      </a>
+    </div>
+
+    <div class="history-card">
+      <img src="./images/moive7.webp" alt="Movie 2" />
+      <div class="progress-bar"></div>
+      <a href="dashboard-404.html" class="icon play-icon" title="Play">▶</a>
+      <a href="dashboard-404.html" class="icon trash-icon" title="Remove">🗑</a>
+    </div>
+
+        <div class="history-card">
+      <img src="./images/animie9.webp" alt="Movie 1" />
+      <div class="progress-bar"></div>
+
+      <a href="dashboard-404.html" class="icon play-icon" title="Play">
+        ▶
+      </a>
+      <a href="dashboard-404.html" class="icon trash-icon" title="Remove">
+        🗑
+      </a>
+    </div>
+
+    <div class="history-card">
+      <img src="./images/moive3.webp" alt="Movie 2" />
+      <div class="progress-bar"></div>
+      <a href="dashboard-404.html" class="icon play-icon" title="Play">▶</a>
+      <a href="dashboard-404.html" class="icon trash-icon" title="Remove">🗑</a>
+    </div>
+
+        <div class="history-card">
+      <img src="./images/drama4.webp" alt="Movie 1" />
+      <div class="progress-bar"></div>
+
+      <a href="dashboard-404.html" class="icon play-icon" title="Play">
+        ▶
+      </a>
+      <a href="dashboard-404.html" class="icon trash-icon" title="Remove">
+        🗑
+      </a>
+    </div>
+
+    <div class="history-card">
+      <img src="./images/jocker_image.webp" alt="Movie 2" />
+      <div class="progress-bar"></div>
+      <a href="dashboard-404.html" class="icon play-icon" title="Play">▶</a>
+      <a href="dashboard-404.html" class="icon trash-icon" title="Remove">🗑</a>
+    </div>
+
+        <div class="history-card">
+      <img src="./images/moive2.webp" alt="Movie 1" />
+      <div class="progress-bar"></div>
+
+      <a href="dashboard-404.html" class="icon play-icon" title="Play">
+        ▶
+      </a>
+      <a href="dashboard-404.html" class="icon trash-icon" title="Remove">
+        🗑
+      </a>
+    </div>
+
+
+    <div class="history-card">
+      <img src="images/show5.webp" alt="Movie 2" />
+      <div class="progress-bar"></div>
+      <a href="dashboard-404.html" class="icon play-icon" title="Play">▶</a>
+      <a href="dashboard-404.html" class="icon trash-icon" title="Remove">🗑</a>
+    </div>
+  </div>
+</section>
+
+<section class="favorites" id="favorites-section">
+  <h2>My Favorites</h2>
+
+  <div class="favorites-grid">
+
+    <!-- Row 1 -->
+    <div class="favorite-card">
+      <img src="images/animie1.webp" alt="Favorite 1" />
+      <a href="/404.html" class="icon heart-icon" title="Remove from favorites">❤️</a>
+    </div>
+    <div class="favorite-card">
+      <img src="images/animie4.webp" alt="Favorite 2" />
+      <a href="/404.html" class="icon heart-icon" title="Remove from favorites">❤️</a>
+    </div>
+    <div class="favorite-card">
+      <img src="images/conjuring_image.webp" alt="Favorite 3" />
+      <a href="/404.html" class="icon heart-icon" title="Remove from favorites">❤️</a>
+    </div>
+    <div class="favorite-card">
+      <img src="images/drama6.webp" alt="Favorite 4" />
+      <a href="/404.html" class="icon heart-icon" title="Remove from favorites">❤️</a>
+    </div>
+
+    <!-- Row 2 -->
+    <div class="favorite-card">
+      <img src="images/moive10.webp" alt="Favorite 5" />
+      <a href="/404.html" class="icon heart-icon" title="Remove from favorites">❤️</a>
+    </div>
+    <div class="favorite-card">
+      <img src="images/moive3.webp" alt="Favorite 6" />
+      <a href="/404.html" class="icon heart-icon" title="Remove from favorites">❤️</a>
+    </div>
+    <div class="favorite-card">
+      <img src="images/sita_image.webp" alt="Favorite 7" />
+      <a href="/404.html" class="icon heart-icon" title="Remove from favorites">❤️</a>
+    </div>
+    <div class="favorite-card">
+      <img src="images/moive7.webp" alt="Favorite 8" />
+      <a href="/404.html" class="icon heart-icon" title="Remove from favorites">❤️</a>
+    </div>
+
+  </div>
+</section>
+
+<!-- JS -->
+ <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="./js/user-dashboard.js"></script>
+</body>
+</html>

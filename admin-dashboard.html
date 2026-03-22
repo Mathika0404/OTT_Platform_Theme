@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>OTT Dashboard</title>
+
+<link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+<link rel="stylesheet" href="./css/admin-dashboard.css">
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+</head>
+
+<body>
+
+<!-- SIDEBAR -->
+<div class="sidebar" id="sidebar">
+
+  <div class="sidebar-header">
+    <h2 class="logo">STACKLY</h2>
+    <div class="close-btn" id="closeBtn">
+      <i class="ri-close-line"></i>
+    </div>
+  </div>
+
+  <ul class="menu">
+    <li><a href="#" class="active"><i class="ri-dashboard-line"></i> Dashboard</a></li>
+    <li><a href="#rating-section"><i class="ri-star-line"></i> Rating</a></li>
+    <li><a href="#users-section"><i class="ri-group-line"></i> Users</a></li>
+    <li><a href="#revenue-section"><i class="ri-money-dollar-circle-line"></i> Revenue</a></li>
+
+    <div class="menu-title">CONTENT</div>
+
+    <li><a href="#movies-section"><i class="ri-movie-2-line"></i> Movie</a></li>
+    <li><a href="#series-section"><i class="ri-film-line"></i> Series</a></li>
+    <li><a href="#content-library"><i class="ri-folder-video-line"></i> Content Library</a></li>
+
+    <div class="menu-title">SYSTEM</div>
+
+    <li><a href="dashboard-404.html"><i class="ri-settings-3-line"></i> Settings</a></li>
+    <li><a href="dashboard-404.html"><i class="ri-logout-box-line"></i> Logout</a></li>
+  </ul>
+
+</div>
+
+<!-- MAIN -->
+<div class="main">
+
+  <!-- NAVBAR -->
+  <div class="navbar">
+
+    <div class="nav-left">
+      <div class="menu-btn" id="menuBtn">
+        <i class="ri-menu-line" id="menuIcon"></i>
+      </div>
+    </div>
+
+    <h2 class="mobile-logo">STACKLY</h2>
+
+    <div class="nav-right">
+
+      <div class="nav-search">
+        <i class="ri-search-line"></i>
+        <input type="text" placeholder="Search...">
+      </div>
+
+      <div class="icon">
+        <i class="ri-notification-3-line"></i>
+        <span class="badge">3</span>
+      </div>
+
+      <div class="icon">
+        <i class="ri-message-2-line"></i>
+        <span class="badge">5</span>
+      </div>
+
+      <div class="profile">
+        <div class="avatar">
+          <i class="ri-user-3-line"></i>
+        </div>
+        <div class="profile-info">
+          <p class="name">Adhvik Rayan Admin</p>
+          <p class="email">adminadhvikrayan@gmail.com</p>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- CONTENT WRAPPER -->
+  <div class="content">
+
+    <!-- SECTION 1 -->
+    <section class="dashboard">
+
+      <div class="left-section">
+        <h3>Platform Performance</h3>
+
+        <div class="cards">
+
+          <div class="card">
+            <i class="ri-film-line"></i>
+            <h2 data-value="85">0%</h2>
+            <p>Total Streams</p>
+          </div>
+
+          <div class="card">
+            <i class="ri-user-line"></i>
+            <h2 data-value="42">0%</h2>
+            <p>Active Users</p>
+          </div>
+
+          <div class="card">
+            <i class="ri-star-line"></i>
+            <h2 data-value="68">0%</h2>
+            <p>User Ratings</p>
+          </div>
+
+          <div class="card">
+            <i class="ri-download-line"></i>
+            <h2 data-value="25">0%</h2>
+            <p>Downloads</p>
+          </div>
+
+          <div class="card">
+            <i class="ri-tv-line"></i>
+            <h2 data-value="74">0%</h2>
+            <p>Watch Time</p>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="right-section">
+        <h3>Engagement Score</h3>
+
+        <div class="circle-box">
+          <div class="circle">
+            <span id="score">0</span>
+          </div>
+          <p class="status">Excellent</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 2 (NOW BELOW) -->
+    <section class="ott-analytics">
+
+      <div class="chart-box">
+        <div class="header">
+          <h3>Viewership Summary</h3>
+          <select id="ottFilter">
+            <option value="monthly">Monthly</option>
+            <option value="yearly">Yearly</option>
+          </select>
+        </div>
+
+        <canvas id="ottAreaChart"></canvas>
+      </div>
+
+      <div class="pie-box">
+        <div class="header">
+          <h3>Content Distribution</h3>
+        </div>
+
+        <canvas id="ottPieChart"></canvas>
+
+        <ul class="legend">
+          <li><span style="background:#7c3aed"></span> Movies</li>
+          <li><span style="background:#06b6d4"></span> Series</li>
+          <li><span style="background:#f59e0b"></span> Live</li>
+          <li><span style="background:#ef4444"></span> Kids</li>
+        </ul>
+      </div>
+
+    </section>
+
+<section class="rating-section" id="rating-section">
+
+  <!-- LEFT SIDE -->
+  <div class="rating-left">
+
+    <h3>Ratings & Reviews</h3>
+
+    <div class="rating-score">
+      <h1>4.2</h1>
+
+      <div class="stars">
+        ★ ★ ★ ★ ☆
+      </div>
+
+      <p class="total-reviews">(8,420 Users)</p>
+    </div>
+
+    <h4>Top User Reviews</h4>
+
+    <div class="review-card">
+      <p class="user">Arjun K</p>
+      <span class="stars small">★★★★★</span>
+      <p class="review-text">
+        Amazing OTT experience! Streaming quality and content variety is top-notch.
+      </p>
+      <span class="likes">👍 520 liked</span>
+    </div>
+
+    <div class="review-card">
+      <p class="user">Priya S</p>
+      <span class="stars small">★★★☆☆</span>
+      <p class="review-text">
+        Good content but buffering issues sometimes. Needs improvement.
+      </p>
+      <span class="likes">👍 210 liked</span>
+    </div>
+
+  </div>
+
+  <!-- RIGHT SIDE -->
+  <div class="rating-right">
+
+    <h3>Platform Evaluation</h3>
+
+    <div class="progress-item">
+      <p>Streaming Quality <span>90%</span></p>
+      <div class="bar"><div class="fill purple" style="width:90%"></div></div>
+    </div>
+
+    <div class="progress-item">
+      <p>Content Variety <span>80%</span></p>
+      <div class="bar"><div class="fill blue" style="width:80%"></div></div>
+    </div>
+
+    <div class="progress-item">
+      <p>App Performance <span>65%</span></p>
+      <div class="bar"><div class="fill green" style="width:65%"></div></div>
+    </div>
+
+    <div class="progress-item">
+      <p>User Interface <span>50%</span></p>
+      <div class="bar"><div class="fill orange" style="width:50%"></div></div>
+    </div>
+
+    <div class="progress-item">
+      <p>Customer Support <span>30%</span></p>
+      <div class="bar"><div class="fill red" style="width:30%"></div></div>
+    </div>
+
+    <div class="progress-item">
+  <p>Content Recommendations <span>85%</span></p>
+  <div class="bar"><div class="fill purple" style="width:85%"></div></div>
+</div>
+
+<div class="progress-item">
+  <p>Subtitle & Language Support <span>70%</span></p>
+  <div class="bar"><div class="fill blue" style="width:70%"></div></div>
+</div>
+
+<div class="progress-item">
+  <p>Download Speed <span>60%</span></p>
+  <div class="bar"><div class="fill green" style="width:60%"></div></div>
+</div>
+
+<div class="progress-item">
+  <p>Ad Experience <span>45%</span></p>
+  <div class="bar"><div class="fill orange" style="width:45%"></div></div>
+</div>
+
+<div class="progress-item">
+  <p>Account Security <span>75%</span></p>
+  <div class="bar"><div class="fill red" style="width:75%"></div></div>
+</div>
+
+  </div>
+
+</section>
+
+<section class="users-section" id="users-section">
+
+  <div class="users-box">
+
+    <div class="header">
+      <h3>User Management</h3>
+    </div>
+
+    <table class="users-table">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>ID</th>
+          <th>Plan</th>
+          <th>Age</th>
+          <th>Gender</th>
+          <th>Email</th>
+        </tr>
+      </thead>
+
+      <tbody>
+
+        <tr>
+          <td><img src="https://i.pravatar.cc/30?img=1"> Arjun Kumar</td>
+          <td>OTT001</td>
+          <td>Premium</td>
+          <td>25</td>
+          <td>Male</td>
+          <td>arjun@gmail.com</td>
+        </tr>
+
+        <tr>
+          <td><img src="https://i.pravatar.cc/30?img=2"> Priya Sharma</td>
+          <td>OTT002</td>
+          <td>Basic</td>
+          <td>23</td>
+          <td>Female</td>
+          <td>priya@gmail.com</td>
+        </tr>
+
+        <tr>
+          <td><img src="https://i.pravatar.cc/30?img=3"> Rahul Das</td>
+          <td>OTT003</td>
+          <td>Standard</td>
+          <td>28</td>
+          <td>Male</td>
+          <td>rahul@gmail.com</td>
+        </tr>
+
+        <tr>
+          <td><img src="https://i.pravatar.cc/30?img=4"> Sneha Iyer</td>
+          <td>OTT004</td>
+          <td>Premium</td>
+          <td>26</td>
+          <td>Female</td>
+          <td>sneha@gmail.com</td>
+        </tr>
+
+        <tr>
+          <td><img src="https://i.pravatar.cc/30?img=5"> Vikram Singh</td>
+          <td>OTT005</td>
+          <td>Basic</td>
+          <td>30</td>
+          <td>Male</td>
+          <td>vikram@gmail.com</td>
+        </tr>
+
+        <tr>
+          <td><img src="https://i.pravatar.cc/30?img=6"> Ananya Roy</td>
+          <td>OTT006</td>
+          <td>Standard</td>
+          <td>22</td>
+          <td>Female</td>
+          <td>ananya@gmail.com</td>
+        </tr>
+
+        <tr>
+          <td><img src="https://i.pravatar.cc/30?img=7"> Karthik N</td>
+          <td>OTT007</td>
+          <td>Premium</td>
+          <td>27</td>
+          <td>Male</td>
+          <td>karthik@gmail.com</td>
+        </tr>
+
+        <tr>
+          <td><img src="https://i.pravatar.cc/30?img=8"> Divya Patel</td>
+          <td>OTT008</td>
+          <td>Basic</td>
+          <td>24</td>
+          <td>Female</td>
+          <td>divya@gmail.com</td>
+        </tr>
+
+        <tr>
+          <td><img src="https://i.pravatar.cc/30?img=9"> Rohit Mehta</td>
+          <td>OTT009</td>
+          <td>Standard</td>
+          <td>29</td>
+          <td>Male</td>
+          <td>rohit@gmail.com</td>
+        </tr>
+
+        <tr>
+          <td><img src="https://i.pravatar.cc/30?img=10"> Meera Nair</td>
+          <td>OTT010</td>
+          <td>Premium</td>
+          <td>21</td>
+          <td>Female</td>
+          <td>meera@gmail.com</td>
+        </tr>
+
+      </tbody>
+    </table>
+
+    <!-- VIEW MORE -->
+    <div class="view-more">
+      <a href="dashboard-404.html" class="btn">View More</a>
+    </div>
+
+  </div>
+
+</section>
+
+
+<section class="revenue-section" id="revenue-section">
+
+  <div class="revenue-box">
+
+    <div class="header">
+      <h3>Revenue Analytics</h3>
+
+      <div class="tabs">
+        <button class="tab active" data-type="week">Week</button>
+        <button class="tab" data-type="month">Month</button>
+        <button class="tab" data-type="quarter">Last 3 Months</button>
+        <button class="tab" data-type="year">Year</button>
+      </div>
+    </div>
+
+    <canvas id="revenueChart"></canvas>
+
+  </div>
+
+</section>
+
+
+<section class="movies-section" id="movies-section">
+
+  <h2 class="section-title">Top Rated Movies</h2>
+
+  <div class="movies-grid">
+
+    <div class="movie"><img src="./images/moive1.webp"></div>
+    <div class="movie"><img src="./images/moive2.webp"></div>
+    <div class="movie"><img src="./images/moive3.webp"></div>
+    <div class="movie"><img src="./images/moive4.webp"></div>
+    <div class="movie"><img src="./images/moive5.webp"></div>
+
+  </div>
+
+</section>
+
+
+<section class="series-section" id="series-section">
+
+  <h2 class="section-title">Top Rated Series</h2>
+
+  <div class="series-grid">
+
+    <div class="series"><img src="./images/drama1.webp"></div>
+    <div class="series"><img src="./images/drama2.webp"></div>
+    <div class="series"><img src="./images/drama3.webp"></div>
+    <div class="series"><img src="./images/drama4.webp"></div>
+    <div class="series"><img src="./images/drama5.webp"></div>
+
+  </div>
+
+</section>
+
+<section class="content-library-section" id="content-library">
+
+  <div class="library-box">
+
+    <div class="header">
+      <h3>Content Library</h3>
+      <button class="add-btn">+ Add Content</button>
+    </div>
+
+    <table class="library-table">
+      <thead>
+        <tr>
+          <th>Poster</th>
+          <th>Title</th>
+          <th>Type</th>
+          <th>Genre</th>
+          <th>Release</th>
+          <th>Status</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+
+      <tbody>
+
+        <tr>
+          <td><img src="./images/moive6.webp"></td>
+          <td>Avengers: Endgame</td>
+          <td>Movie</td>
+          <td>Action</td>
+          <td>2019</td>
+          <td><span class="status active">Live</span></td>
+          <td>
+            <button class="edit">Edit</button>
+            <button class="delete">Delete</button>
+          </td>
+        </tr>
+
+        <tr>
+          <td><img src="./images/moive7.webp"></td>
+          <td>Joker</td>
+          <td>Movie</td>
+          <td>Drama</td>
+          <td>2019</td>
+          <td><span class="status active">Live</span></td>
+          <td>
+            <button class="edit">Edit</button>
+            <button class="delete">Delete</button>
+          </td>
+        </tr>
+
+        <tr>
+          <td><img src="./images/moive8.webp"></td>
+          <td>Stranger Things</td>
+          <td>Series</td>
+          <td>Sci-Fi</td>
+          <td>2016</td>
+          <td><span class="status active">Live</span></td>
+          <td>
+            <button class="edit">Edit</button>
+            <button class="delete">Delete</button>
+          </td>
+        </tr>
+
+        <tr>
+          <td><img src="./images/moive9.webp"></td>
+          <td>Money Heist</td>
+          <td>Series</td>
+          <td>Thriller</td>
+          <td>2017</td>
+          <td><span class="status inactive">Draft</span></td>
+          <td>
+            <button class="edit">Edit</button>
+            <button class="delete">Delete</button>
+          </td>
+        </tr>
+
+        <tr>
+          <td><img src="./images/moive10.webp"></td>
+          <td>Interstellar</td>
+          <td>Movie</td>
+          <td>Sci-Fi</td>
+          <td>2014</td>
+          <td><span class="status active">Live</span></td>
+          <td>
+            <button class="edit">Edit</button>
+            <button class="delete">Delete</button>
+          </td>
+        </tr>
+
+      </tbody>
+    </table>
+
+  </div>
+
+</section>
+
+
+<script src="./js/admin-dashboard.js"></script>
+
+</body>
+</html>

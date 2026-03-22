@@ -1,0 +1,815 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>OTT Website</title>
+
+  <!-- GOOGLE FONT -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+
+  <!-- REMIX ICON -->
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+
+<!-- FONT AWESOME -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css">
+
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="./css/categories.css">
+</head>
+<body>
+
+
+<!-- MODAL -->
+<div id="loginModal" class="login-modal">
+
+  <div class="login-box">
+
+    <span class="close-btn" onclick="closeLogin()">&times;</span>
+
+    <div class="bio-logo">
+      <i class="ri-movie-2-line"></i>
+    </div>
+
+    <h2 id="formTitle">Welcome Back</h2>
+
+    <p id="formSubtitle">
+      Login to continue watching your favorite movies & shows
+    </p>
+
+    <form id="authForm" onsubmit="handleAuthSubmit(event)">
+
+      <!-- ROLE -->
+      <div id="loginRoleBox">
+        <label>Login As</label>
+        <select id="loginRole">
+          <option value="admin">Admin</option>
+          <option value="user">User</option>
+        </select>
+        <p class="role-note">Choose Admin or User</p>
+      </div>
+
+      <!-- NAME -->
+      <input type="text" id="fullName" placeholder="Full Name" style="display:none;">
+
+      <!-- PHONE -->
+      <input type="tel" id="phoneNumber" placeholder="Phone Number">
+
+      <!-- EMAIL -->
+      <input type="email" id="email" placeholder="Email Address" required>
+
+      <!-- PASSWORD -->
+      <div class="password-field">
+        <input type="password" id="loginPassword" placeholder="Password" required>
+        <i class="ri-eye-off-line toggle-eye" id="eyeIcon" onclick="togglePassword()"></i>
+      </div>
+
+      <!-- CONFIRM -->
+      <input type="password" id="confirmPassword" placeholder="Confirm Password" style="display:none;">
+
+      <button type="submit" class="login-submit" id="submitBtn">
+        Login to Dashboard
+      </button>
+
+    </form>
+
+    <p class="switch-text">
+      <span id="switchText">Don't have an account?</span>
+      <a href="#" onclick="toggleAuth()">Sign up</a>
+    </p>
+
+  </div>
+
+</div>
+
+
+<!-- NAVBAR -->
+<header>
+  <nav class="navbar">
+
+    <div class="nav__header">
+      <div class="nav__logo">
+        <a href="index.html">
+          <img src="./images/stackly_logo.webp" class="logo-img" alt="logo">
+        </a>
+      </div>
+
+      <div class="nav__menu__btn" id="menu-btn">
+        <i class="ri-menu-line"></i>
+      </div>
+    </div>
+
+    <ul class="nav__links" id="nav-links">
+      <li class="dropdown">
+        <a href="index.html">Home</a>
+      </li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="research.html">Service</a></li>
+      <li><a href="categories.html">Categories</a></li>
+      <li><a href="contact.html">Contact</a></li>
+<li>
+  <a href="javascript:void(0)" onclick="openLogin()">Login</a>
+</li>
+    </ul>
+
+  </nav>
+</header>
+
+
+<section class="categories-hero">
+
+  <!-- OVERLAY -->
+  <div class="overlay"></div>
+
+  <!-- CONTENT -->
+  <div class="categories-content">
+    <h1>Explore Streaming Categories</h1>
+
+    <p>
+      Discover a wide range of genres including Action, Drama, Romance,
+      Sci-Fi, Thriller, and more. Find the perfect content tailored to
+      your mood and start your entertainment journey today.
+    </p>
+
+    <a href="#categories" class="categories-btn">Start Searching</a>
+  </div>
+
+</section>
+
+
+<section class="tvshows">
+
+  <h2>Top TV Shows</h2>
+
+  <!-- ARROWS -->
+  <button class="tv-btn left" onclick="tvSlideLeft()">&#10094;</button>
+  <button class="tv-btn right" onclick="tvSlideRight()">&#10095;</button>
+
+  <div class="tv-row" id="tvSlider">
+
+
+<!-- 1 -->
+<div class="tv-card">
+  <img src="images/tv_show1.webp">
+  <div class="tv-overlay">
+    <button onclick="goTo404()">▶ Watch Now</button>
+    <p class="meta">2024 • Tamil</p>
+    <p class="desc">A deep emotional journey of love, sacrifice, and destiny.</p>
+  </div>
+</div>
+
+<!-- 2 -->
+<div class="tv-card">
+  <img src="images/tv_show2.webp">
+  <div class="tv-overlay">
+    <button onclick="goTo404()">▶ Watch Now</button>
+    <p class="meta">2023 • English</p>
+    <p class="desc">A gripping thriller filled with unexpected twists.</p>
+  </div>
+</div>
+
+<!-- 3 -->
+<div class="tv-card">
+  <img src="images/tv_show3.webp">
+  <div class="tv-overlay">
+    <button onclick="goTo404()">▶ Watch Now</button>
+    <p class="meta">2022 • Tamil</p>
+    <p class="desc">A heartwarming romantic story that touches the soul.</p>
+  </div>
+</div>
+
+<!-- 4 -->
+<div class="tv-card">
+  <img src="images/tv_show4.webp">
+  <div class="tv-overlay">
+    <button onclick="goTo404()">▶ Watch Now</button>
+    <p class="meta">2021 • Hindi</p>
+    <p class="desc">An intense drama exploring relationships and emotions.</p>
+  </div>
+</div>
+
+<!-- 5 -->
+<div class="tv-card">
+  <img src="images/tv_show5.webp">
+  <div class="tv-overlay">
+    <button onclick="goTo404()">▶ Watch Now</button>
+    <p class="meta">2023 • English</p>
+    <p class="desc">A suspense-packed series that keeps you hooked.</p>
+  </div>
+</div>
+
+<!-- 6 -->
+<div class="tv-card">
+  <img src="images/tv_show6.webp">
+  <div class="tv-overlay">
+    <button onclick="goTo404()">▶ Watch Now</button>
+    <p class="meta">2020 • Korean</p>
+    <p class="desc">A thrilling journey full of action, mystery, and drama.</p>
+  </div>
+</div>
+
+<!-- 7 -->
+<div class="tv-card">
+  <img src="images/tv_show7.webp">
+  <div class="tv-overlay">
+    <button onclick="goTo404()">▶ Watch Now</button>
+    <p class="meta">2024 • Telugu</p>
+    <p class="desc">An inspiring story of dreams, struggles, and success.</p>
+  </div>
+</div>
+
+<!-- 8 -->
+<div class="tv-card">
+  <img src="images/tv_show8.webp">
+  <div class="tv-overlay">
+    <button onclick="goTo404()">▶ Watch Now</button>
+    <p class="meta">2022 • Tamil</p>
+    <p class="desc">A fun-filled comedy series with endless entertainment.</p>
+  </div>
+</div>
+
+<!-- 9 -->
+<div class="tv-card">
+  <img src="images/tv_show9.webp">
+  <div class="tv-overlay">
+    <button onclick="goTo404()">▶ Watch Now</button>
+    <p class="meta">2023 • Hindi</p>
+    <p class="desc">A powerful emotional rollercoaster of relationships.</p>
+  </div>
+</div>
+
+<!-- 10 -->
+<div class="tv-card">
+  <img src="images/tv_show10.webp">
+  <div class="tv-overlay">
+    <button onclick="goTo404()">▶ Watch Now</button>
+    <p class="meta">2021 • Japanese</p>
+    <p class="desc">An action-packed anime filled with adventure and emotion.</p>
+  </div>
+</div>
+
+
+  </div>
+
+</section>
+
+
+<section class="animes">
+
+  <h2>Top Animes Series</h2>
+
+  <!-- ARROWS -->
+  <button class="anime-btn left" onclick="animeSlideLeft()">&#10094;</button>
+  <button class="anime-btn right" onclick="animeSlideRight()">&#10095;</button>
+
+  <div class="anime-row" id="animeSlider">
+
+    <!-- 1 -->
+    <div class="anime-card">
+      <img src="images/animie1.webp">
+      <div class="anime-overlay">
+        <button onclick="goTo404()">▶ Watch Now</button>
+        <p class="meta">2024 • Japanese</p>
+        <p class="desc">A powerful anime journey filled with action and emotion.</p>
+      </div>
+    </div>
+
+    <!-- 2 -->
+    <div class="anime-card">
+      <img src="images/animie2.webp">
+      <div class="anime-overlay">
+        <button onclick="goTo404()">▶ Watch Now</button>
+        <p class="meta">2023 • Japanese</p>
+        <p class="desc">A thrilling fantasy world with epic battles.</p>
+      </div>
+    </div>
+
+    <!-- 3 -->
+    <div class="anime-card">
+      <img src="images/animie3.webp">
+      <div class="anime-overlay">
+        <button onclick="goTo404()">▶ Watch Now</button>
+        <p class="meta">2022 • Japanese</p>
+        <p class="desc">A romantic anime with deep emotional storytelling.</p>
+      </div>
+    </div>
+
+    <!-- 4 -->
+    <div class="anime-card">
+      <img src="images/animie4.webp">
+      <div class="anime-overlay">
+        <button onclick="goTo404()">▶ Watch Now</button>
+        <p class="meta">2021 • Japanese</p>
+        <p class="desc">An intense anime drama about power and destiny.</p>
+      </div>
+    </div>
+
+    <!-- 5 -->
+    <div class="anime-card">
+      <img src="images/animie5.webp">
+      <div class="anime-overlay">
+        <button onclick="goTo404()">▶ Watch Now</button>
+        <p class="meta">2023 • Japanese</p>
+        <p class="desc">A suspense anime filled with unexpected twists.</p>
+      </div>
+    </div>
+
+    <!-- 6 -->
+    <div class="anime-card">
+      <img src="images/animie6.webp">
+      <div class="anime-overlay">
+        <button onclick="goTo404()">▶ Watch Now</button>
+        <p class="meta">2020 • Japanese</p>
+        <p class="desc">A high-energy anime packed with action scenes.</p>
+      </div>
+    </div>
+
+    <!-- 7 -->
+    <div class="anime-card">
+      <img src="images/animie7.webp">
+      <div class="anime-overlay">
+        <button onclick="goTo404()">▶ Watch Now</button>
+        <p class="meta">2024 • Japanese</p>
+        <p class="desc">An inspiring anime story of dreams and courage.</p>
+      </div>
+    </div>
+
+    <!-- 8 -->
+    <div class="anime-card">
+      <img src="images/animie8.webp">
+      <div class="anime-overlay">
+        <button onclick="goTo404()">▶ Watch Now</button>
+        <p class="meta">2022 • Japanese</p>
+        <p class="desc">A fun anime series filled with humor and adventure.</p>
+      </div>
+    </div>
+
+    <!-- 9 -->
+    <div class="anime-card">
+      <img src="images/animie9.webp">
+      <div class="anime-overlay">
+        <button onclick="goTo404()">▶ Watch Now</button>
+        <p class="meta">2023 • Japanese</p>
+        <p class="desc">A dark anime exploring mystery and survival.</p>
+      </div>
+    </div>
+
+    <!-- 10 -->
+    <div class="anime-card">
+      <img src="images/animie10.webp">
+      <div class="anime-overlay">
+        <button onclick="goTo404()">▶ Watch Now</button>
+        <p class="meta">2021 • Japanese</p>
+        <p class="desc">An emotional anime filled with adventure and bonds.</p>
+      </div>
+    </div>
+
+  </div>
+
+</section>
+
+
+<section class="drama">
+
+  <h2>Top Drama Series</h2>
+
+  <!-- ARROWS -->
+  <button class="drama-btn left" onclick="dramaSlideLeft()">&#10094;</button>
+  <button class="drama-btn right" onclick="dramaSlideRight()">&#10095;</button>
+
+  <div class="drama-row" id="dramaSlider">
+
+    <!-- 1 -->
+    <div class="drama-card">
+      <img src="images/drama1.webp">
+      <div class="drama-overlay">
+        <button onclick="goTo404()">▶ Watch Now</button>
+        <p class="meta">2024 • Tamil</p>
+        <p class="desc">An emotional drama filled with love and sacrifice.</p>
+      </div>
+    </div>
+
+    <!-- 2 -->
+    <div class="drama-card">
+      <img src="images/drama2.webp">
+      <div class="drama-overlay">
+        <button onclick="goTo404()">▶ Watch Now</button>
+        <p class="meta">2023 • Hindi</p>
+        <p class="desc">A powerful story exploring human relationships.</p>
+      </div>
+    </div>
+
+    <!-- 3 -->
+    <div class="drama-card">
+      <img src="images/drama3.webp">
+      <div class="drama-overlay">
+        <button onclick="goTo404()">▶ Watch Now</button>
+        <p class="meta">2022 • Tamil</p>
+        <p class="desc">A touching journey of love and emotional struggles.</p>
+      </div>
+    </div>
+
+    <!-- 4 -->
+    <div class="drama-card">
+      <img src="images/drama4.webp">
+      <div class="drama-overlay">
+        <button onclick="goTo404()">▶ Watch Now</button>
+        <p class="meta">2021 • English</p>
+        <p class="desc">An intense drama about trust and betrayal.</p>
+      </div>
+    </div>
+
+    <!-- 5 -->
+    <div class="drama-card">
+      <img src="images/drama5.webp">
+      <div class="drama-overlay">
+        <button onclick="goTo404()">▶ Watch Now</button>
+        <p class="meta">2023 • Malayalam</p>
+        <p class="desc">A heartfelt story of family and emotions.</p>
+      </div>
+    </div>
+
+    <!-- 6 -->
+    <div class="drama-card">
+      <img src="images/drama6.webp">
+      <div class="drama-overlay">
+        <button onclick="goTo404()">▶ Watch Now</button>
+        <p class="meta">2020 • Korean</p>
+        <p class="desc">A gripping emotional rollercoaster drama.</p>
+      </div>
+    </div>
+
+    <!-- 7 -->
+    <div class="drama-card">
+      <img src="images/drama7.webp">
+      <div class="drama-overlay">
+        <button onclick="goTo404()">▶ Watch Now</button>
+        <p class="meta">2024 • Telugu</p>
+        <p class="desc">A story of dreams, struggles, and relationships.</p>
+      </div>
+    </div>
+
+    <!-- 8 -->
+    <div class="drama-card">
+      <img src="images/drama8.webp">
+      <div class="drama-overlay">
+        <button onclick="goTo404()">▶ Watch Now</button>
+        <p class="meta">2022 • Tamil</p>
+        <p class="desc">An emotional tale filled with love and drama.</p>
+      </div>
+    </div>
+
+    <!-- 9 -->
+    <div class="drama-card">
+      <img src="images/drama9.webp">
+      <div class="drama-overlay">
+        <button onclick="goTo404()">▶ Watch Now</button>
+        <p class="meta">2023 • Hindi</p>
+        <p class="desc">A dramatic journey of relationships and life choices.</p>
+      </div>
+    </div>
+
+    <!-- 10 -->
+    <div class="drama-card">
+      <img src="images/drama10.webp">
+      <div class="drama-overlay">
+        <button onclick="goTo404()">▶ Watch Now</button>
+        <p class="meta">2021 • English</p>
+        <p class="desc">A timeless emotional drama that connects hearts.</p>
+      </div>
+    </div>
+
+  </div>
+
+</section>
+
+
+<section class="movies">
+
+  <h2>Top Movies</h2>
+
+  <!-- ARROWS -->
+  <button class="movie-btn left" onclick="movieSlideLeft()">&#10094;</button>
+  <button class="movie-btn right" onclick="movieSlideRight()">&#10095;</button>
+
+  <div class="movie-row" id="movieSlider">
+
+    <!-- 1 -->
+    <div class="movie-card">
+      <img src="images/moive1.webp">
+      <div class="movie-overlay">
+        <button onclick="goTo404()">▶ Watch Now</button>
+        <p class="meta">2024 • Tamil</p>
+        <p class="desc">An emotional cinematic journey filled with love and drama.</p>
+      </div>
+    </div>
+
+    <!-- 2 -->
+    <div class="movie-card">
+      <img src="images/moive2.webp">
+      <div class="movie-overlay">
+        <button onclick="goTo404()">▶ Watch Now</button>
+        <p class="meta">2023 • English</p>
+        <p class="desc">A thrilling movie packed with suspense and twists.</p>
+      </div>
+    </div>
+
+    <!-- 3 -->
+    <div class="movie-card">
+      <img src="images/moive3.webp">
+      <div class="movie-overlay">
+        <button onclick="goTo404()">▶ Watch Now</button>
+        <p class="meta">2022 • Tamil</p>
+        <p class="desc">A romantic movie that touches hearts deeply.</p>
+      </div>
+    </div>
+
+    <!-- 4 -->
+    <div class="movie-card">
+      <img src="images/moive4.webp">
+      <div class="movie-overlay">
+        <button onclick="goTo404()">▶ Watch Now</button>
+        <p class="meta">2021 • Hindi</p>
+        <p class="desc">A powerful drama with emotional storytelling.</p>
+      </div>
+    </div>
+
+    <!-- 5 -->
+    <div class="movie-card">
+      <img src="images/moive5.webp">
+      <div class="movie-overlay">
+        <button onclick="goTo404()">▶ Watch Now</button>
+        <p class="meta">2023 • English</p>
+        <p class="desc">A suspense movie that keeps you hooked till the end.</p>
+      </div>
+    </div>
+
+    <!-- 6 -->
+    <div class="movie-card">
+      <img src="images/moive6.webp">
+      <div class="movie-overlay">
+        <button onclick="goTo404()">▶ Watch Now</button>
+        <p class="meta">2020 • Korean</p>
+        <p class="desc">An action-packed cinematic experience.</p>
+      </div>
+    </div>
+
+    <!-- 7 -->
+    <div class="movie-card">
+      <img src="images/moive7.webp">
+      <div class="movie-overlay">
+        <button onclick="goTo404()">▶ Watch Now</button>
+        <p class="meta">2024 • Telugu</p>
+        <p class="desc">An inspiring story of dreams and achievements.</p>
+      </div>
+    </div>
+
+    <!-- 8 -->
+    <div class="movie-card">
+      <img src="images/moive8.webp">
+      <div class="movie-overlay">
+        <button onclick="goTo404()">▶ Watch Now</button>
+        <p class="meta">2022 • Tamil</p>
+        <p class="desc">A fun-filled entertainer with comedy and emotions.</p>
+      </div>
+    </div>
+
+    <!-- 9 -->
+    <div class="movie-card">
+      <img src="images/moive9.webp">
+      <div class="movie-overlay">
+        <button onclick="goTo404()">▶ Watch Now</button>
+        <p class="meta">2023 • Hindi</p>
+        <p class="desc">A gripping emotional rollercoaster.</p>
+      </div>
+    </div>
+
+    <!-- 10 -->
+    <div class="movie-card">
+      <img src="images/moive10.webp">
+      <div class="movie-overlay">
+        <button onclick="goTo404()">▶ Watch Now</button>
+        <p class="meta">2021 • English</p>
+        <p class="desc">A timeless movie that stays in your heart.</p>
+      </div>
+    </div>
+
+  </div>
+
+</section>
+
+
+<section class="sports">
+
+  <h2>Top Sport Entertainment</h2>
+
+  <!-- ARROWS -->
+  <button class="sport-btn left" onclick="sportSlideLeft()">&#10094;</button>
+  <button class="sport-btn right" onclick="sportSlideRight()">&#10095;</button>
+
+  <div class="sport-row" id="sportSlider">
+
+    <!-- 1 -->
+    <div class="sport-card">
+      <img src="images/sport1.webp">
+      <div class="sport-overlay">
+        <button onclick="goTo404()">▶ Watch Now</button>
+        <p class="meta">2024 • Cricket</p>
+        <p class="desc">An exciting cricket series showcasing intense matches.</p>
+      </div>
+    </div>
+
+    <!-- 2 -->
+    <div class="sport-card">
+      <img src="images/sport2.webp">
+      <div class="sport-overlay">
+        <button onclick="goTo404()">▶ Watch Now</button>
+        <p class="meta">2023 • Football</p>
+        <p class="desc">A thrilling football journey filled with passion.</p>
+      </div>
+    </div>
+
+    <!-- 3 -->
+    <div class="sport-card">
+      <img src="images/sport3.webp">
+      <div class="sport-overlay">
+        <button onclick="goTo404()">▶ Watch Now</button>
+        <p class="meta">2022 • Tennis</p>
+        <p class="desc">A competitive tennis series with global players.</p>
+      </div>
+    </div>
+
+    <!-- 4 -->
+    <div class="sport-card">
+      <img src="images/sport4.webp">
+      <div class="sport-overlay">
+        <button onclick="goTo404()">▶ Watch Now</button>
+        <p class="meta">2021 • Kabaddi</p>
+        <p class="desc">High-energy kabaddi matches and intense rivalries.</p>
+      </div>
+    </div>
+
+    <!-- 5 -->
+    <div class="sport-card">
+      <img src="images/sport5.webp">
+      <div class="sport-overlay">
+        <button onclick="goTo404()">▶ Watch Now</button>
+        <p class="meta">2023 • Basketball</p>
+        <p class="desc">A fast-paced basketball series full of action.</p>
+      </div>
+    </div>
+
+    <!-- 6 -->
+    <div class="sport-card">
+      <img src="images/sport6.webp">
+      <div class="sport-overlay">
+        <button onclick="goTo404()">▶ Watch Now</button>
+        <p class="meta">2020 • MMA</p>
+        <p class="desc">An intense mixed martial arts competition series.</p>
+      </div>
+    </div>
+
+    <!-- 7 -->
+    <div class="sport-card">
+      <img src="images/sport7.webp">
+      <div class="sport-overlay">
+        <button onclick="goTo404()">▶ Watch Now</button>
+        <p class="meta">2024 • Racing</p>
+        <p class="desc">High-speed racing action with adrenaline rush.</p>
+      </div>
+    </div>
+
+    <!-- 8 -->
+    <div class="sport-card">
+      <img src="images/sport8.webp">
+      <div class="sport-overlay">
+        <button onclick="goTo404()">▶ Watch Now</button>
+        <p class="meta">2022 • Wrestling</p>
+        <p class="desc">A dramatic wrestling show packed with entertainment.</p>
+      </div>
+    </div>
+
+    <!-- 9 -->
+    <div class="sport-card">
+      <img src="images/sport9.webp">
+      <div class="sport-overlay">
+        <button onclick="goTo404()">▶ Watch Now</button>
+        <p class="meta">2023 • Hockey</p>
+        <p class="desc">A thrilling hockey league filled with excitement.</p>
+      </div>
+    </div>
+
+    <!-- 10 -->
+    <div class="sport-card">
+      <img src="images/sport10.webp">
+      <div class="sport-overlay">
+        <button onclick="goTo404()">▶ Watch Now</button>
+        <p class="meta">2021 • Boxing</p>
+        <p class="desc">A powerful boxing series showcasing intense fights.</p>
+      </div>
+    </div>
+
+  </div>
+
+</section>
+
+<!-- FOOTER SECTION -->
+<footer class="bio-footer">
+
+  <div class="footer-container">
+
+    <!-- ABOUT OTT -->
+    <div class="footer-col">
+      <div class="footer-logo">
+        <img src="./images/stackly_logo.webp" alt="OTT Platform Logo">
+      </div>
+
+      <p>
+        Our OTT streaming platform delivers unlimited movies, TV shows,
+        and exclusive originals across multiple genres. Enjoy high-quality
+        entertainment anytime, anywhere with seamless streaming,
+        personalized recommendations, and a cinematic experience
+        at your fingertips.
+      </p>
+    </div>
+
+    <!-- QUICK LINKS -->
+    <div class="footer-col">
+      <h4>Quick Links</h4>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="movies.html">Movies</a></li>
+        <li><a href="categories.html">Categories</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+
+    <!-- SOCIAL MEDIA -->
+    <div class="footer-col">
+      <h4>Follow Us</h4>
+      <ul class="social-links">
+        <li>
+          <a href="404.html"><i class="ri-facebook-fill"></i> Facebook</a>
+        </li>
+        <li>
+          <a href="404.html"><i class="ri-twitter-x-line"></i> Twitter</a>
+        </li>
+        <li>
+          <a href="404.html"><i class="ri-instagram-line"></i> Instagram</a>
+        </li>
+        <li>
+          <a href="404.html"><i class="ri-linkedin-fill"></i> LinkedIn</a>
+        </li>
+        <li>
+          <a href="404.html"><i class="ri-youtube-fill"></i> YouTube</a>
+        </li>
+      </ul>
+    </div>
+
+    <!-- CATEGORIES -->
+    <div class="footer-col">
+      <h4>Categories</h4>
+      <ul>
+        <li><a href="404.html">Action</a></li>
+        <li><a href="404.html">Drama</a></li>
+        <li><a href="404.html">Sci-Fi</a></li>
+        <li><a href="404.html">Thriller</a></li>
+        <li><a href="404.html">Comedy</a></li>
+      </ul>
+    </div>
+
+    <!-- SUPPORT -->
+    <div class="footer-col">
+      <h4>Support</h4>
+      <ul>
+        <li><a href="404.html">Help Center</a></li>
+        <li><a href="404.html">Account Settings</a></li>
+        <li><a href="404.html">Subscription Plans</a></li>
+        <li><a href="404.html">Privacy Policy</a></li>
+        <li><a href="404.html">Terms & Conditions</a></li>
+      </ul>
+    </div>
+
+  </div>
+
+  <!-- FOOTER BOTTOM -->
+  <div class="footer-bottom">
+    <p>© 2026 StreamX OTT Platform | All Rights Reserved</p>
+  </div>
+
+</footer>
+<script>
+function goTo404() {
+  window.location.href = "404.html";
+}
+</script>
+<script src="./js/categories.js"></script>
+<script src="./js/script.js"></script>
+</body>
+</html>
