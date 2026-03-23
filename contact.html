@@ -144,18 +144,24 @@
   <div class="contact-container">
 
     <!-- LEFT FORM -->
-    <div class="contact-form">
-      <!-- <h4>Contact Us</h4> -->
-      <h2>Get In Touch</h2>
+<div class="contact-form">
+  <h2>Get In Touch</h2>
 
-      <input type="text" placeholder="Your Name...">
-      <input type="email" placeholder="example@email.com">
-      <input type="text" placeholder="Title...">
-      <textarea placeholder="Type Here..."></textarea>
+  <input type="text" id="name" placeholder="Your Name...">
+  <small class="error" id="nameError"></small>
 
-      <button onclick="goTo404()">Send Now</button>
-    </div>
+<input type="text" id="contactEmail" placeholder="example@email.com">
+<small class="error" id="contactEmailError"></small>
 
+  <input type="text" id="title" placeholder="Title...">
+  <small class="error" id="titleError"></small>
+
+  <textarea id="message" placeholder="Type Here..."></textarea>
+  <small class="error" id="messageError"></small>
+
+  <!-- IMPORTANT: type="button" -->
+  <button type="button" onclick="validateForm()">Send Now</button>
+</div>
 
     <!-- RIGHT CONTENT -->
     <div class="contact-info">
@@ -233,7 +239,8 @@
       <ul>
         <li><a href="index.html">Home</a></li>
         <li><a href="about.html">About</a></li>
-        <li><a href="movies.html">Movies</a></li>
+        <li><a href="service.html">Service</a></li>
+        <!-- <li><a href="movies.html">Movies</a></li> -->
         <li><a href="categories.html">Categories</a></li>
         <li><a href="contact.html">Contact</a></li>
       </ul>
@@ -294,15 +301,79 @@
 
 </footer>
 <script>
-function goTo404() {
-  window.location.href = "404.html";
-}
-
-
+// Scroll to contact section
 function scrollToContact() {
   document.querySelector(".contact-section").scrollIntoView({
     behavior: "smooth"
   });
+}
+
+// Redirect function (optional use)
+function goTo404() {
+  window.location.href = "404.html";
+}
+
+// =========================
+// CONTACT FORM VALIDATION
+// =========================
+function validateForm() {
+
+  // Get values (IMPORTANT: contactEmail used)
+  let name = document.getElementById("name").value.trim();
+  let email = document.getElementById("contactEmail").value.trim();
+  let title = document.getElementById("title").value.trim();
+  let message = document.getElementById("message").value.trim();
+
+  let isValid = true;
+
+  // Clear previous errors
+  document.getElementById("nameError").innerText = "";
+  document.getElementById("contactEmailError").innerText = "";
+  document.getElementById("titleError").innerText = "";
+  document.getElementById("messageError").innerText = "";
+
+  // =========================
+  // NAME VALIDATION
+  // =========================
+  if (name === "") {
+    document.getElementById("nameError").innerText = "Name is required";
+    isValid = false;
+  }
+
+  // =========================
+  // EMAIL VALIDATION
+  // =========================
+  if (email === "") {
+    document.getElementById("contactEmailError").innerText = "Email is required";
+    isValid = false;
+  } 
+  else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+    document.getElementById("contactEmailError").innerText = "Enter valid email";
+    isValid = false;
+  }
+
+  // =========================
+  // TITLE VALIDATION
+  // =========================
+  if (title === "") {
+    document.getElementById("titleError").innerText = "Title is required";
+    isValid = false;
+  }
+
+  // =========================
+  // MESSAGE VALIDATION
+  // =========================
+  if (message === "") {
+    document.getElementById("messageError").innerText = "Message is required";
+    isValid = false;
+  }
+
+  // =========================
+  // FINAL REDIRECT
+  // =========================
+  if (isValid) {
+    window.location.href = "404.html";
+  }
 }
 </script>
 
