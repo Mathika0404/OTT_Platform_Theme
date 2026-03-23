@@ -86,6 +86,9 @@ function updateForm(){
 function handleAuthSubmit(e){
   e.preventDefault();
 
+  const email = document.getElementById("email").value.trim();
+  const password = document.getElementById("loginPassword").value.trim();
+
   if(!isSignup){
 
     const role = document.getElementById("loginRole").value;
@@ -97,7 +100,25 @@ function handleAuthSubmit(e){
       window.location.href = "user-dashboard.html";
     }
 
-  } else {
+  } 
+  else {
+
+    const name = document.getElementById("fullName").value.trim();
+    const phone = document.getElementById("phoneNumber").value.trim();
+    const confirmPassword = document.getElementById("confirmPassword").value.trim();
+
+    // ✅ VALIDATION
+    if(name === "" || phone === "" || email === "" || password === "" || confirmPassword === ""){
+      alert("Please fill all fields!");
+      return;
+    }
+
+    if(password !== confirmPassword){
+      alert("Passwords do not match!");
+      return;
+    }
+
+    // ✅ SUCCESS → REDIRECT
     window.location.href = "404.html";
   }
 }
